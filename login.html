@@ -12,44 +12,74 @@
 
 <body>
     <div class="container">
-        <!-- header component start -->
-        <header>
-            <div class="actions">
-                <!-- login and signup -->
-                <div class="signup">ثبت‌نام<a href=""><button>ثبت‌نام</button></a></div>
-                <div class="login"><a href=""><button>ورود</button></a></div>
-            </div>
-            <nav>
-                <ul>
-                    <!-- navbar links -->
-                    <li><a href="" class="nav-link">وبلاگ</a></li>
-                    <li><a href="" class="nav-link">تماس با ما</a></li>
-                    <li><a href="" class="nav-link">درباره‌ما</a></li>
-                    <li><a href="" class="nav-link">ثبت درخواست معامله</a></li>
-                    <li><a href="" class="nav-link">معامله سریع</a></li>
-                    <li><a href="" class="nav-link">معامله P2P</a></li>
-                    <li class="logo"><a href=""><img src="/assets/svg/logo.svg" alt="logo"></a></li>
-                </ul>
-            </nav>
-        </header>
-        <!-- header component end -->
+        <div class="background-pattern">
+            <!-- header component start -->
+            <header>
+                <div class="actions">
+                    <!-- login and signup -->
+                    <div class="signup">ثبت‌نام<a href=""><button>ثبت‌نام</button></a></div>
+                    <div class="login"><a href=""><button>ورود</button></a></div>
+                </div>
+                <nav>
+                    <ul>
+                        <!-- navbar links -->
+                        <li><a href="" class="nav-link">وبلاگ</a></li>
+                        <li><a href="" class="nav-link">تماس با ما</a></li>
+                        <li><a href="" class="nav-link">درباره‌ما</a></li>
+                        <li><a href="" class="nav-link">ثبت درخواست معامله</a></li>
+                        <li><a href="" class="nav-link">معامله سریع</a></li>
+                        <li><a href="" class="nav-link">معامله P2P</a></li>
+                        <li class="logo"><a href=""><img src="/assets/icons/logo.svg" alt="logo"></a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- header component end -->
 
-        <div class="login">
-            <div class="pattern"></div>
-            <div class="login-form">
-                <div class="title">ورود</div>
-                <div class="form"></div>
+            <div class="main-form">
+                <div class="side-pattern"><img src="/assets/svg/login_signup.svg" alt=""></div>
+                <div class="login-form">
+                    <div class="form-title">ورود</div>
+                    <form action="" method="post">
+                        <div class="input-email-wrapper">
+                            <input type="email" name="email" id="input-email" placeholder="آدرس ایمیل">
+                            <img class="letter-icon" src="/assets/icons/letter.svg" alt="">
+                        </div>
+                        <div>
+                            <div class="input-password-wrapper">
+                                <img class="lock-icon" src="/assets/icons/lock.svg" alt="">
+                                <input type="password" name="password" id="input-password" placeholder="رمز عبور">
+                                <img class="eye-icon" src="/assets/icons/eye.svg" alt="">
+                            </div>
+                            <div class="forget-password">
+                                <a href="">
+                                    رمز عبور خود را فراموش کرده ام
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="signin-button-wrapper">
+                            ورود
+                            <button type="submit" class="signin-button">ورود</button>
+                        </div>
+                        <button class="signup-with-google">
+                            ثبت نام با حساب گوگل
+                            <img src="/assets/icons/google.png" alt="google">
+                        </button>
+                        <div class="have-no-account">حساب کاربری ندارید؟ <a href="">ثبت نام</a></div>
+                    </form>
+                </div>
             </div>
+
         </div>
 
         <!-- footer component start -->
         <footer>
             <div class="contact-info">
                 <div class="social-media">
-                    <div class="twitter"><a href=""><img src="/assets/svg/twitter.svg" alt="twitter"></a></div>
-                    <div class="whatsapp"><a href=""><img src="/assets/svg/whatsapp.svg" alt="whatsapp"></a></div>
-                    <div class="instagram"><a href=""><img src="/assets/svg/instagram.svg" alt="instagram"></a></div>
-                    <div class="telegram"><a href=""><img src="/assets/svg/telegram.svg" alt="telegram"></a></div>
+                    <div class="twitter"><a href=""><img src="/assets/icons/twitter.svg" alt="twitter"></a></div>
+                    <div class="whatsapp"><a href=""><img src="/assets/icons/whatsapp.svg" alt="whatsapp"></a></div>
+                    <div class="instagram"><a href=""><img src="/assets/icons/instagram.svg" alt="instagram"></a></div>
+                    <div class="telegram"><a href=""><img src="/assets/icons/telegram.svg" alt="telegram"></a></div>
                 </div>
             </div>
             <div class="vista">ویستا، پلتفرم معاملات ارز دیجیتال</div>
