@@ -536,7 +536,8 @@ nav ul {
   color: #fd2f70;
 }
 .input-email-wrapper .letter-icon,
-.input-password-wrapper .lock-icon {
+.input-password-wrapper .lock-icon,
+.input-referral-wrapper .referral-icon {
   position: absolute;
   top: 14px;
   right: 12px;
@@ -547,13 +548,17 @@ nav ul {
   top: 14px;
   left: 12px;
   bottom: 14px;
+  width: 20px;
+  height: 20px;
 }
 .input-email-wrapper,
-.input-password-wrapper {
+.input-password-wrapper,
+.input-referral-wrapper {
   position: relative;
 }
-.login-form #input-email,
-.login-form #input-password {
+#input-email,
+#input-password,
+#input-referral {
   padding: 0.75rem 2.25rem;
   width: 320px;
   height: 48px;
@@ -575,14 +580,28 @@ nav ul {
   /* Gray 3 */
 
   color: #7d7d7d;
+  transition: all 0.25s ease-in-out;
+  border: transparent solid 1px;
 }
-.login-form #input-email::placeholder,
-.login-form #input-password::placeholder {
+#input-email:focus,
+#input-password:focus,
+#input-referral:focus {
+  border-color: #07bc93;
+}
+#input-email::placeholder,
+#input-password::placeholder,
+#input-referral::placeholder {
   transition: color 0.25s ease-in-out;
 }
-.login-form #input-email:focus::placeholder,
-.login-form #input-password:focus::placeholder {
+#input-email:focus::placeholder,
+#input-password:focus::placeholder,
+#input-referral:focus::placeholder {
   color: #c0c0c0;
+}
+#input-email:hover::placeholder,
+#input-password:hover::placeholder,
+#input-referral:hover::placeholder {
+  color: #4f4f4f;
 }
 .forget-password {
   margin: 0.25rem 0 0;
@@ -602,7 +621,38 @@ nav ul {
 .forget-password:hover {
   color: #fd2f70;
 }
-.signin-button-wrapper {
+.terms-consent {
+  width: 320px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.terms-consent label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1rem;
+  text-align: right;
+
+  color: #707070;
+}
+#terms-consent:checked + label::after {
+  content: url(../assets/icons/checked.svg);
+  width: 1rem;
+  height: 1rem;
+}
+#terms-consent + label::after {
+  content: url(../assets/icons/unchecked.svg);
+  width: 1rem;
+  height: 1rem;
+}
+.signin-button-wrapper,
+.signup-button-wrapper {
   position: relative;
   width: 320px;
   height: 48px;
@@ -622,7 +672,8 @@ nav ul {
 
   color: #ffffff;
 }
-.signin-button {
+.signin-button,
+.signup-button {
   position: absolute;
   inset: 0;
   width: 320px;
@@ -644,7 +695,8 @@ nav ul {
   color: #ffffff;
   transition: opacity 0.25s ease-out;
 }
-.signin-button:hover {
+.signin-button:hover,
+.signup-button:hover {
   opacity: 0;
 }
 .signup-with-google {
