@@ -38,7 +38,7 @@ button,
 input,
 select,
 textarea {
-  font-family: sans-serif;
+  font-family: inherit;
 }
 body {
   margin: 0;
@@ -230,6 +230,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/* end of Normalize.css */
+
+/* Custom global resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* add iran_sans_fonts */
 @font-face {
@@ -303,7 +315,141 @@ table {
   src: url('../assets/fonts/woff/IRANSansX-Regular.woff') format('woff'),
     url('../assets/fonts/woff2/IRANSansX-Regular.woff2') format('woff2');
 }
-/* set font family */
+/* set font-family globally */
 body {
-  font-family: 'IRANSans';
+  font-family: 'IRANSansX';
 }
+/* Header components styles start */
+
+/* header styles */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 120px;
+}
+/* Nav styles */
+nav ul {
+  /* lauout styles */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  /* font styles */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4f4f4f;
+}
+/* nav-link animations start */
+.nav-link {
+  color: #2f2f2f;
+  transition: color 0.25s ease-out;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #fd2f70;
+  transform-origin: center;
+  transition: transform 0.25s ease-out;
+}
+.nav-link:hover {
+  color: #fd2f70;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+/* nav-link animations end */
+.actions {
+  /* lauout styles */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem;
+}
+.actions .logo {
+  padding: 0.43rem;
+}
+
+.actions .signup button {
+  /* lauout styles */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 84px;
+  height: 38px;
+  padding: 8px 22px;
+  /* Pink/Pink Linear */
+  background: linear-gradient(31.82deg, #b51f4f -4.32%, #fd2f70 101.44%);
+  border: none;
+  border-radius: 8px;
+  /* font styles */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  /* animation */
+  transition: opacity 0.25s ease-out;
+}
+
+/* animation styles start */
+.actions .signup {
+  /* lauout styles */
+  position: relative;
+  width: 84px;
+  height: 38px;
+  padding: 8px 22px;
+  /* Pink/Pink Reversed Linear */
+  background: linear-gradient(31.82deg, #fd2f70 -4.32%, #b51f4f 101.44%);
+  border: none;
+  border-radius: 8px;
+  /* font styles */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+}
+.actions .signup button:hover {
+  opacity: 0;
+}
+/* animation styles end */
+
+.actions .login button {
+  /* layout */
+  width: 84px;
+  height: 38px;
+  /* apearance */
+  border: 1px solid #fd2f70;
+  border-radius: 8px;
+  background-color: #ffffff;
+  /* font styles */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fd2f70;
+  /* animation */
+  transition: all 0.25s ease-out;
+}
+/* animation styles start */
+.actions .login button:hover {
+  background-color: #fff1f1;
+}
+/* animation styles end */
+
+/* Header components styles end */
