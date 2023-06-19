@@ -1,5 +1,6 @@
 {
   "name": "vista",
+  "type": "module",
   "version": "1.0.0",
   "description": "text project",
   "main": "server.js",
@@ -20,6 +21,8 @@
     "bcrypt": "^5.1.0",
     "connect-mongo": "^5.0.0",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "mongoose": "^7.3.0",
