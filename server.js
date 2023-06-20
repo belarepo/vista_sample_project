@@ -37,7 +37,6 @@ app.post(
   })
 );
 app.get('/logout', function (req, res, next) {
-  console.log('loged out');
   req.logout(function (err) {
     if (err) {
       return next(err);
@@ -45,6 +44,17 @@ app.get('/logout', function (req, res, next) {
     res.redirect('/');
   });
 });
+
+// auth with google
+app.get(/((login)|(signup))\/with\/google/, passport.authenticate('google'));
+
+app.get(
+  '/auth',
+  passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+  })
+);
 
 // unprotected routes
 import {
@@ -65,6 +75,7 @@ app.post('/signup', postSignupHandler);
 app.use(checkUserLogedIn);
 
 app.use('/', (req, res) => {
+  console.log(req.session);
   res.render('chats');
 });
 

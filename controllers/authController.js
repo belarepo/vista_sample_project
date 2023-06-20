@@ -12,6 +12,9 @@ export function getSignupHandler(req, res) {
 }
 export async function postSignupHandler(req, res, next) {
   try {
+    if (!req.body.terms_consent || !req.body.email || !req.body.password) {
+      return res.redirect('/signup');
+    }
     if (User.findOne({ email: req.body.email })) {
       return res.redirect('/login');
     }
@@ -22,6 +25,7 @@ export async function postSignupHandler(req, res, next) {
     const newUser = new User();
     newUser.password = hashedPassword;
     newUser.email = req.body.email;
+    newUser.referral = req.body.referral;
     await newUser.save();
 
     req.login(newUser, function (err) {
