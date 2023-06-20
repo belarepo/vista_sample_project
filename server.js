@@ -15,3 +15,6 @@ app.set('view engine', 'ejs');
 
 // serve static files
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
+
+// body parser middleware
+app.use(express.urlencoded({ extended: true }));
