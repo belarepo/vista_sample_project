@@ -19,6 +19,10 @@ app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 // body parser middleware
 app.use(express.urlencoded({ extended: true }));
 
+// set session
+import { setSession } from './controllers/sessionController.js';
+app.use(setSession);
+
 // unprotected routes
 import {
   getLoginHandler,
