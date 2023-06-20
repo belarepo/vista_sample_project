@@ -45,7 +45,8 @@ passport.use(
         const newUser = new User();
         newUser.googleId = profile.id;
         newUser.email = profile.emails[0].value;
-
+        newUser.username = profile.displayName;
+        console.log(profile);
         await newUser.save();
 
         return cb(null, newUser);
