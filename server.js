@@ -23,18 +23,50 @@ app.use(express.urlencoded({ extended: true }));
 import { setSession } from './controllers/sessionController.js';
 app.use(setSession);
 
+// import passport and its configs
+import passport from 'passport';
+import './controllers/passportController.js';
+
+app.use(passport.authenticate('session'));
+
+app.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+  })
+);
+app.get('/logout', function (req, res, next) {
+  console.log('loged out');
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
+
 // unprotected routes
 import {
   getLoginHandler,
   postLoginHandler,
+  getSignupHandler,
   postSignupHandler,
   getLogoutHandler,
+  checkUserLogedIn,
 } from './controllers/authController.js';
 app.get('/login', getLoginHandler);
-app.post('/login', postLoginHandler);
-app.get('/signup', postSignupHandler);
+// app.post('/login', postLoginHandler);
+app.get('/signup', getSignupHandler);
 app.post('/signup', postSignupHandler);
-app.get('/logout', getLogoutHandler);
+// app.get('/logout', getLogoutHandler);
+
+// protected Routes
+app.use(checkUserLogedIn);
+
+app.use('/', (req, res) => {
+  res.render('chats');
+});
 
 // Connect to DB
 import mongoose from 'mongoose';
