@@ -74,9 +74,19 @@ app.post('/signup', postSignupHandler);
 // protected Routes
 app.use(checkUserLogedIn);
 
-app.use('/', (req, res) => {
-  console.log(req.session);
-  res.render('chats');
+import { User } from './models/user.js';
+app.use('/', async (req, res) => {
+  const user = await User.findById(req.session.passport.user.id);
+  res.render('chats', { name: user.username });
+});
+
+// 404 page
+app.all('*', (req, res) => {
+  res.status(404).render('error', {
+    errStatusCode: '404',
+    errTitle: 'صفحه ی مورد نظر یافت نشد.',
+    errMessage: '',
+  });
 });
 
 // Connect to DB
