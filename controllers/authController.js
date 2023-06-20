@@ -15,7 +15,7 @@ export async function postSignupHandler(req, res, next) {
     if (!req.body.terms_consent || !req.body.email || !req.body.password) {
       return res.redirect('/signup');
     }
-    if (User.findOne({ email: req.body.email })) {
+    if (await User.findOne({ email: req.body.email })) {
       return res.redirect('/login');
     }
     const hashedPassword = await bcrypt.hash(
