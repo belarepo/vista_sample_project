@@ -19,6 +19,19 @@ app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 // body parser middleware
 app.use(express.urlencoded({ extended: true }));
 
+// unprotected routes
+import {
+  getLoginHandler,
+  postLoginHandler,
+  postSignupHandler,
+  getLogoutHandler,
+} from './controllers/authController.js';
+app.get('/login', getLoginHandler);
+app.post('/login', postLoginHandler);
+app.get('/signup', postSignupHandler);
+app.post('/signup', postSignupHandler);
+app.get('/logout', getLogoutHandler);
+
 // Connect to DB
 import mongoose from 'mongoose';
 await mongoose.connect(process.env.DB_CONNECTION_STRING);
