@@ -18,3 +18,12 @@ app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
 // body parser middleware
 app.use(express.urlencoded({ extended: true }));
+
+// Connect to DB
+import mongoose from 'mongoose';
+await mongoose.connect(process.env.DB_CONNECTION_STRING);
+console.log('The app connected to mongodb successfully');
+// start the web server
+app.listen(process.env.PORT, () => {
+  console.log(`The app listening on port ${process.env.PORT}`);
+});
